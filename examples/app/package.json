@@ -21,7 +21,6 @@
     "@jupyterlab/inspector-extension": "^1.0.2",
     "@jupyterlab/launcher-extension": "^1.0.2",
     "@jupyterlab/mainmenu-extension": "^1.0.2",
-    "@jupyterlab/markdownviewer-extension": "^1.0.2",
     "@jupyterlab/mathjax2-extension": "^1.0.2",
     "@jupyterlab/notebook-extension": "^1.0.3",
     "@jupyterlab/rendermime-extension": "^1.0.2",

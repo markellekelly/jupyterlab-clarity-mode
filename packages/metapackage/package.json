@@ -64,8 +64,6 @@
     "@jupyterlab/launcher-extension": "^1.0.2",
     "@jupyterlab/mainmenu": "^1.0.2",
     "@jupyterlab/mainmenu-extension": "^1.0.2",
-    "@jupyterlab/markdownviewer": "^1.0.2",
-    "@jupyterlab/markdownviewer-extension": "^1.0.2",
     "@jupyterlab/mathjax2": "^1.0.0",
     "@jupyterlab/mathjax2-extension": "^1.0.2",
     "@jupyterlab/nbconvert-css": "^0.1.5",
