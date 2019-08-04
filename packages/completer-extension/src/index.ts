@@ -14,8 +14,6 @@ import {
   ICompletionManager
 } from '@jupyterlab/completer';
 
-import { IConsoleTracker } from '@jupyterlab/console';
-
 import { INotebookTracker } from '@jupyterlab/notebook';
 
 import { Widget } from '@phosphor/widgets';
@@ -26,15 +24,11 @@ import { Widget } from '@phosphor/widgets';
 namespace CommandIDs {
   export const invoke = 'completer:invoke';
 
-  export const invokeConsole = 'completer:invoke-console';
-
   export const invokeNotebook = 'completer:invoke-notebook';
 
   export const invokeFile = 'completer:invoke-file';
 
   export const select = 'completer:select';
-
-  export const selectConsole = 'completer:select-console';
 
   export const selectNotebook = 'completer:select-notebook';
 
@@ -116,69 +110,6 @@ const manager: JupyterFrontEndPlugin<ICompletionManager> = {
 };
 
 /**
- * An extension that registers consoles for code completion.
- */
-const consoles: JupyterFrontEndPlugin<void> = {
-  id: '@jupyterlab/completer-extension:consoles',
-  requires: [ICompletionManager, IConsoleTracker],
-  autoStart: true,
-  activate: (
-    app: JupyterFrontEnd,
-    manager: ICompletionManager,
-    consoles: IConsoleTracker
-  ): void => {
-    // Create a handler for each console that is created.
-    consoles.widgetAdded.connect((sender, panel) => {
-      sender;
-      const anchor = panel.console;
-      const cell = anchor.promptCell;
-      const editor = cell && cell.editor;
-      const session = anchor.session;
-      const parent = panel;
-      const connector = new CompletionConnector({ session, editor });
-      const handler = manager.register({ connector, editor, parent });
-
-      // Listen for prompt creation.
-      anchor.promptCellCreated.connect((sender, cell) => {
-        sender;
-        const editor = cell && cell.editor;
-        handler.editor = editor;
-        handler.connector = new CompletionConnector({ session, editor });
-      });
-    });
-
-    // Add console completer invoke command.
-    app.commands.addCommand(CommandIDs.invokeConsole, {
-      execute: () => {
-        const id = consoles.currentWidget && consoles.currentWidget.id;
-
-        if (id) {
-          return app.commands.execute(CommandIDs.invoke, { id });
-        }
-      }
-    });
-
-    // Add console completer select command.
-    app.commands.addCommand(CommandIDs.selectConsole, {
-      execute: () => {
-        const id = consoles.currentWidget && consoles.currentWidget.id;
-
-        if (id) {
-          return app.commands.execute(CommandIDs.select, { id });
-        }
-      }
-    });
-
-    // Set enter key for console completer select command.
-    app.commands.addKeyBinding({
-      command: CommandIDs.selectConsole,
-      keys: ['Enter'],
-      selector: `.jp-ConsolePanel .jp-mod-completer-active`
-    });
-  }
-};
-
-/**
  * An extension that registers notebooks for code completion.
  */
 const notebooks: JupyterFrontEndPlugin<void> = {
@@ -245,7 +176,6 @@ const notebooks: JupyterFrontEndPlugin<void> = {
  */
 const plugins: JupyterFrontEndPlugin<any>[] = [
   manager,
-  consoles,
   notebooks
 ];
 export default plugins;

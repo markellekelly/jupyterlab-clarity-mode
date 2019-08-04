@@ -1693,20 +1693,6 @@
   resolved "https://registry.yarnpkg.com/@phosphor/coreutils/-/coreutils-1.3.1.tgz#441e34f42340f7faa742a88b2a181947a88d7226"
   integrity sha512-9OHCn8LYRcPU/sbHm5v7viCA16Uev3gbdkwqoQqlV+EiauDHl70jmeL7XVDXdigl66Dz0LI11C99XOxp+s3zOA==
 
-"@phosphor/datagrid@^0.1.9":
-  version "0.1.9"
-  resolved "https://registry.yarnpkg.com/@phosphor/datagrid/-/datagrid-0.1.9.tgz#7a20383f6dad254e10a226180f90de94fe08e612"
-  integrity sha512-8YV8u/o7jV9TJM/vh/jyqEg4xaDSce0D+iWs73ZQRjnGwbxHPsfA2bPpGli5Z28DLsPqKlsiXOxqzYXnTqaI4w==
-  dependencies:
-    "@phosphor/algorithm" "^1.1.3"
-    "@phosphor/coreutils" "^1.3.1"
-    "@phosphor/disposable" "^1.2.0"
-    "@phosphor/domutils" "^1.1.3"
-    "@phosphor/dragdrop" "^1.3.3"
-    "@phosphor/messaging" "^1.2.3"
-    "@phosphor/signaling" "^1.2.3"
-    "@phosphor/widgets" "^1.8.0"
-
 "@phosphor/disposable@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@phosphor/disposable/-/disposable-1.2.0.tgz#878b9b5863f2026bbf2935eb600c7fdc97d0d026"
@@ -4109,11 +4095,6 @@ csstype@^2.2.0:
   version "2.6.5"
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.5.tgz#1cd1dff742ebf4d7c991470ae71e12bb6751e034"
   integrity sha512-JsTaiksRsel5n7XwqPAfB0l3TFKdpjW/kgAELf9vrb5adGA7UCPLajKK5s3nFrcFm3Rkyp/Qkgl73ENc1UY3cA==
-
-csv-spectrum@~1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/csv-spectrum/-/csv-spectrum-1.0.0.tgz#591ac9ff48ad4f3eb4338457bc9801b349e3d628"
-  integrity sha1-WRrJ/0itTz60M4RXvJgBs0nj1ig=
 
 currently-unhandled@^0.4.1:
   version "0.4.1"
